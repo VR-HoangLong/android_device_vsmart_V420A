@@ -15,7 +15,7 @@
 #
 
 # Vendor blobs
-$(call inherit-product, vendor/motorola/river/river-vendor.mk)
+$(call inherit-product, vendor/vsmart/V430A/V430A-vendor.mk)
 
 # Properties
 -include $(LOCAL_PATH)/properties.mk
@@ -46,48 +46,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # Camera
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov12a10_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov12a10_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_s5k4h7_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k4h7_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_s5k5e9_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k5e9_chromatix.xml
-
-# Fingerprint
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl \
-    $(LOCAL_PATH)/idc/uinput-egis.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-egis.idc
+    $(LOCAL_PATH)/configs/camera/gc2385_casuarina_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/gc2385_casuarina_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/ov8856_casuarina_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/ov8856_casuarina_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3l6_casuarina_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3l6_casuarina_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7yx_casuarina_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_casuarina_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/v430_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/v430_camera.xml
 
 # Init
 PRODUCT_PACKAGES += \
-    init.river.rc
+    init.V430A.rc
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.lineage.livedisplay@2.0-service-sysfs
-
-# NFC and Secure Element packages
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/nfc/libnfc-nxp-gcf.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-gcf.conf
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/android.hardware.nfc.hcef.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/com.nxp.mifare.xml
-
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag \
-    SecureElement \
-    android.hardware.nfc@1.2-service
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -98,5 +75,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
-# Inherit from motorola sdm632-common
-$(call inherit-product, device/motorola/sdm632-common/common.mk)
+# Wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+
+# Inherit from vsmart sdm632-common
+$(call inherit-product, device/vsmart/sdm632-common/common.mk)

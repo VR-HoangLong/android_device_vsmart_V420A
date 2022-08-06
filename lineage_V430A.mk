@@ -22,18 +22,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from river device
+# Inherit from V430A device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-PRODUCT_BRAND := motorola
-PRODUCT_DEVICE := river
-PRODUCT_MANUFACTURER := motorola
-PRODUCT_NAME := lineage_river
-PRODUCT_MODEL := moto g(7)
+PRODUCT_BRAND := Vsmart
+PRODUCT_DEVICE := V430A
+PRODUCT_MANUFACTURER := Vsmart
+PRODUCT_NAME := lineage_V430A
+PRODUCT_MODEL := Vsmart Joy 3
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-        PRODUCT_NAME=river_retail \
-        PRIVATE_BUILDS_DESC="river_retail-user 10 QPUS30.52-33-11 df129 release-keys"
+        PRODUCT_NAME=casuarina \
+        PRIVATE_BUILDS_DESC="casuarina-user 10 QKQ1.200311.002 V430A_OPN_U_B15_211112 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := motorola/river_retail/river:10/QPUS30.52-33-11/df129:user/release-keys
+BUILD_FINGERPRINT := vsmart/casuarina_open/casuarina:10/QKQ1.200311.002/V430A_OPN_U_B15_211112:user/release-keys

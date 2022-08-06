@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_river.mk
+    $(LOCAL_DIR)/lineage_V430A.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_river-eng \
-    lineage_river-user \
-    lineage_river-userdebug
+    lineage_V430A-eng \
+    lineage_V430A-user \
+    lineage_V430A-userdebug

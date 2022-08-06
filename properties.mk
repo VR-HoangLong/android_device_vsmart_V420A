@@ -1,5 +1,5 @@
 #
-# vendor props for river
+# vendor props for V430A
 #
 
 # Audio
@@ -14,7 +14,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.sensors=river \
+    ro.hardware.sensors=casuarina \
     ro.vendor.sensors.amd=false \
     ro.vendor.sensors.facing=false \
     ro.vendor.sensors.mot_detect=true \
@@ -29,7 +29,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.camera.expose.aux=1
+    persist.vendor.camera.expose.aux=1 \
+    persist.vendor.camera.customer.config=v430_camera.xml
 
 # Cutout
 PRODUCT_PRODUCT_PROPERTIES += \
